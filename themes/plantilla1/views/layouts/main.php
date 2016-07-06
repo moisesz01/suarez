@@ -37,49 +37,44 @@ if($user!=""){
   <div id="topbar" class="clear">
     <?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
-				array('label'=>'INICIO', 'url'=>array('/site/index')),
-                                array('label'=>'COBROS', 'url'=>array('/gestion')),
-                  
-				array('label'=>'METAS', 'url'=>array('/metas/indexmetas'),
+    			array('label'=>'INICIO', 'url'=>array('/site/index')),
+          array('label'=>'COBROS', 'url'=>array('/gestion')),
+				  array('label'=>'METAS', 'url'=>array('/metas/indexmetas'),
 							'items'=>array(
 								array('label'=>'Nuevo', 'url'=>array('/metas/create')),
 								array('label'=>'Administrar', 'url'=>array('/metas/admin')),
 								array('label'=>'Listado', 'url'=>array('/metas/index')),
 							)
-                                ),
+          ),
         
-  //                              array('label'=>'REMUNERACION', 'url'=>array('/calculoRemuneracion/calculoremunecacioncobradora')),
-              array('label'=>'REMUNERACIÓN', 'url'=>array('/calculoRemuneracion/calculoremunecacioncobradora'),
+          //array('label'=>'REMUNERACION', 'url'=>array('/calculoRemuneracion/calculoremunecacioncobradora')),
+          array('label'=>'REMUNERACIÓN', 'url'=>array('/calculoRemuneracion/calculoremunecacioncobradora'),
               'items'=>array(
-                      array('label'=>'Bonos', 'url'=>array('/PagoRemuneracion/index')),
-                       array('label'=>'CÁLCULO DE REMUNERACIÓN COBRADORA', 'url'=>array('/calculoRemuneracion/calculoremunecacioncobradora')),
+                  array('label'=>'Bonos', 'url'=>array('/PagoRemuneracion/index')),
+                  array('label'=>'CÁLCULO DE REMUNERACIÓN COBRADORA', 'url'=>array('/calculoRemuneracion/calculoremunecacioncobradora')),
                                                             
-                            )
-                                ),
-             
-
-
-              array('label'=>'TRAMITES', 'url'=>array('/tramite/index'),
-							'items'=>array(
-								array('label'=>'Administrar Tramites', 'url'=>array('/tramite/admin')),
-                array('label'=>'Tramites en Transito', 'url'=>array('/tramite/continuartramites')),
-                array('label'=>'Tramites Liquidados', 'url'=>array('/tramite/tramitesliquidados')),
-                array('label'=>'Administración de Pasos', 'url'=>array('/duracionPasos/')),
-							)
-                                ),
-                             
-                          
-				
-                             array('label'=>'TABLEROS', 'url'=>array('/tableros/')),
-                  array('label'=>'ADMINISTRACION', 'url'=>array('/usuarios/inicio'),
-              'items'=>array(
-                array('label'=>'Usuarios', 'url'=>array('/usuarios/create')),             
-                                                                array('label'=>'Duracion Pasos', 'url'=>array('/duracionPasos/index')),
               )
-                                ),
-                               // array('label'=>'Usuarios', 'url'=>array('/usuarios/index')),
-				array('label'=>'INICIAR SESIÓN', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'CERRAR SESION ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+          ),
+          array('label'=>'TRAMITES', 'url'=>array('/tramite/index'),
+							'items'=>array(
+  								array('label'=>'Administrar Tramites', 'url'=>array('/tramite/admin')),
+                  array('label'=>'Tramites en Transito', 'url'=>array('/tramite/continuartramites')),
+                  array('label'=>'Tramites Liquidados', 'url'=>array('/tramite/tramitesliquidados')),
+                  array('label'=>'Administración de Pasos', 'url'=>array('/duracionPasos/')),
+					     )
+          ),
+          array('label'=>'TABLEROS', 'url'=>array('/tableros/')),
+          array('label'=>'ADMINISTRACION', 'url'=>array('/usuarios/inicio'),
+            'items'=>array(
+                array('label'=>'Usuarios', 'url'=>array('/usuarios/create')),             
+                array('label'=>'Permisología', 'url'=>array('/access/index')),             
+                array('label'=>'Duracion Pasos', 'url'=>array('/duracionPasos/index')),
+              )
+          ),
+
+          // array('label'=>'Usuarios', 'url'=>array('/usuarios/index')),
+				  array('label'=>'INICIAR SESIÓN', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+				  array('label'=>'CERRAR SESION ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 			'id'=>'topnav',
 		));

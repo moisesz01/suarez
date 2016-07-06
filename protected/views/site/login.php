@@ -135,7 +135,7 @@ input[type="submit"]:active {
 }
 </style>
 
-             <p ><button type="button" class="btn btn-warning">BIENENVENIDO AL SISTEMA ANTERES</button>                            
+             <p ><button type="button" class="btn btn-warning">BIENVENIDOS AL SISTEMA ANTERES</button>                            
        <h2 class="titulo" align="center"></h2>
     </p>
     <br/>

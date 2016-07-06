@@ -67,22 +67,28 @@ public function actionView($id)
 */
 public function actionCreate()
 {
-$model=new Usuarios;
+	$model=new Usuarios;
 
-// Uncomment the following line if AJAX validation is needed
-// $this->performAjaxValidation($model);
+	$roles =  Yii::app()->db->createCommand()
+    ->select('ai.name AS rol')
+    ->from('AuthItem AS ai')
+    ->where('ai.type=2')
+    ->queryAll();
+  
+
 
 	if(isset($_POST['Usuarios']))
 	{
 		$model->attributes=$_POST['Usuarios'];
 		$model->password=$model->hashPassword($_POST['Usuarios']['password'],$session=$model->generateSalt());
 		$model->session=$session;
-		if($model->save())
-			//$role = $auth->createRole('analista_cobros', 'Analista de Cobros');
+		$rol = $model->id_rol;
+		$model->id_rol=1;
+
+		if($model->save()){
+			
 			$auth=Yii::app()->authManager;
-            $rol = Roles::model()->find('id_rol=:id_rol',
-                              array(':id_rol'=>$model->id_rol)); 
-			$auth->assign($rol->descrip_roles,$model->id_usuario); // adding admin to first user created 
+			$auth->assign($rol,$model->id_usuario); // adding admin to first user created 
 			$auth->save();
 			$this->redirect(array('view','id'=>$model->id_usuario));
 		}
@@ -91,6 +97,12 @@ $model=new Usuarios;
 		'model'=>$model,
 		));
 	}
+	$this->render('create',array(
+		'model'=>$model,
+		'roles' =>$roles,
+	));
+
+}
 
 /**
 * Updates a particular model.

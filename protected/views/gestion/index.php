@@ -36,6 +36,12 @@ array('label'=>'Reporte de Cobros','url'=>array('gestion/indexreportes')),
 
 
 <button type="button" class="btn btn-warning">AGENDA DE GESTI&Oacute;N</button>
+<div class="titulos">
+<h2>AGENDA DE GESTIÓN</h2>    
+</div>
+
+
+
 
 <div>
 <?php 

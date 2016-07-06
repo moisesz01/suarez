@@ -13,4 +13,8 @@ array('label'=>'Manage Usuarios','url'=>array('admin')),
 
 <button type="button" class="btn btn-warning">CREAR USUARIOS</button>
      
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form',
+ 	array(
+ 		'model'=>$model,
+ 		'roles' =>$roles,
+ 	)); ?>
